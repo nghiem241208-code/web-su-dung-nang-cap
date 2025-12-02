@@ -1,83 +1,370 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TỔNG QUAN VỀ CHAT GPT</title><style>
-    :root{--bg-dark:#06080d;--bg-card:#0d1117;--neon-blue:#4dc3ff;--neon-purple:#8b5bff;--text-light:#e9ecf8;--text-dim:#b9c0d4;--radius:18px;--shadow-neon:0 0 18px rgba(77,195,255,0.35);--gradient-hero:linear-gradient(135deg, #4dc3ff, #8a5bff);--gradient-card:linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);}
-    body{margin:0;font-family:"Poppins", sans-serif;background:var(--bg-dark);color:var(--text-light);line-height:1.7;}
-    /* Menu chỉ giữ lại 3 mục chính */
-    nav{position:sticky;top:0;backdrop-filter:blur(12px);background:rgba(10,10,20,0.55);padding:14px 30px;display:flex;justify-content:center;gap:26px;z-index:50;border-bottom:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;}
-    nav a{color:var(--text-dim);text-decoration:none;font-weight:500;padding:10px 16px;border-radius:6px;transition:0.25s;}
-    nav a:hover{color:var(--neon-blue);text-shadow:0 0 10px var(--neon-blue);}
-    nav a.active{color:var(--neon-blue);font-weight:600;text-shadow:0 0 8px var(--neon-blue);}
-    .hero{text-align:center;padding:80px 20px 40px;}
-    .hero h1{font-size:52px;font-weight:800;background:var(--gradient-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px;}
-    .hero p{color:var(--text-dim);max-width:650px;margin:auto;font-size:18px;line-height:1.7;}
-    .container{max-width:1000px;margin:0 auto 80px;padding:0 20px;}
-    .content-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:flex-start;}
-    .info-box{background:var(--gradient-card);padding:32px;border-radius:var(--radius);box-shadow:var(--shadow-neon);border:1px solid rgba(255,255,255,0.08);}
-    .info-box h2{color:var(--neon-blue);font-size:24px;font-weight:700;margin-top:0;border-bottom:2px solid rgba(77,195,255,0.15);padding-bottom:10px;}
-    .user-content p{margin-bottom:15px;color:var(--text-dim);}
-    .user-content h3{color:var(--neon-blue);font-size:18px;font-weight:700;margin-top:25px;margin-bottom:10px;}
-    .user-content ul{list-style-type:none;padding-left:0;margin-top:5px;}
-    .user-content ul li{margin-bottom:8px;padding-left:25px;position:relative;font-size:16px;color:var(--text-dim);}
-    .user-content ul.pros li::before{content:'✓';color:#38e359;font-weight:bold;position:absolute;left:0;font-size:1.2em;}
-    .user-content ul.cons li::before{content:'✕';color:#ff5e5e;font-weight:bold;position:absolute;left:0;font-size:1.2em;}
-    .gemini-link{display:inline-block;margin-top:20px;padding:12px 25px;background:var(--gradient-hero);color:var(--bg-dark);text-decoration:none;border-radius:8px;font-weight:600;transition:0.3s;box-shadow:0 4px 15px rgba(77,195,255,0.4);}
-    .gemini-link:hover{background:linear-gradient(135deg, #69d4ff, #a07dff);transform:translateY(-3px);box-shadow:0 6px 20px rgba(77,195,255,0.6);}
-    .media-box{background:var(--bg-card);padding:0;border-radius:var(--radius);box-shadow:var(--shadow-neon);border:1px solid rgba(255,255,255,0.08);text-align:center;overflow:hidden;}
-    .media-box h2{color:var(--neon-purple);font-size:20px;margin-top:20px;margin-bottom:15px;padding:0 20px;font-weight:600;}
-    .media-box img{width:100%;height:auto;display:block;margin:0;}
-    .media-box p{padding:15px 20px 20px;margin:0;font-size:14px;color:var(--text-dim);}
-    footer{margin-top:80px;padding:30px;text-align:center;font-size:14px;color:var(--text-dim);border-top:1px solid rgba(255,255,255,0.05);}
-    @media (max-width: 768px){.content-grid{grid-template-columns:1fr;gap:20px;}.hero h1{font-size:40px;}nav{gap:10px;padding:10px;}nav a{padding:8px 12px;font-size:14px;}}
-    </style>
-    </head>
-    <body>
-        <nav>
-            <a href="index.html"class="active">TRANG CHỦ</a>
-            <a href="muc1.html">THÔNG TIN</a>
-            <a href="muc2.html">VAI TRÒ</a>
-            <a href="muc3.html">NHỮNG SAI LẦM</a>
-            <a href="muc4.html">GIẢI PHÁP</a>
-        </nav>
-        
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+<title>THÔNG TIN CHUNG VÀ TỔNG QUAN</title>
 
-    <section class="hero"><h1>TỔNG QUAN VỀ CHAT GPT</h1><p></p></section>
-    <div class="container"><div class="content-grid">
-    <div class="info-box">
-    <h2 id="tong-quan">1. CHAT GPT LÀ GÌ?</h2>
-    <div class="user-content"><p>
-        ChatGPT là một hệ thống thông minh nhân tạo có thể hiểu và tạo ra ngôn ngữ như con người. 
-        Công cụ này giúp người dùng đặt câu hỏi, tìm kiếm thông tin, giải thích thông tin, 
-        và hỗ trợ người dùng trong quá trình học và học tập nhiều môn học khác nhau. 
-        ChatGPT hoạt động dựa trên những thông tin dữ liệu lớn để có thể đưa ra câu trả lời phù hợp với câu hỏi của người dùng. Nếu được sử dụng một cách hợp lý, 
-        ChatGPT có thể trở thành một trợ lý học tập thông minh và có ích cho học sinh.
-    </p><a href="https://chat.openai.com/" target="_blank" class="gemini-link">Khám phá Chat GPT (OpenAI)</a></div>
+<style>
+    /* ==================================== */
+    /*  STYLE B: AI MODERN (NEON GRADIENT)  */
+    /* ==================================== */
+    :root{
+        --bg-dark:#06080d;
+        --bg-card:#0d1117;
+        --neon-blue:#4dc3ff;
+        --neon-purple:#8b5bff;
+        --text-light:#e9ecf8;
+        --text-dim:#b9c0d4;
+        --radius:18px;
+        --shadow-neon:0 0 18px rgba(77,195,255,0.35);
+        --gradient-hero:linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card:linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --nav-width: 300px; 
+    }
+
+    body{
+        margin:0;
+        font-family:"Poppins", sans-serif;
+        background:var(--bg-dark);
+        color:var(--text-light);
+        line-height:1.7;
+    }
+
+    /* === MENU TOGGLE CSS === */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
+    }
+    .menu-toggle{
+        background:none;border:none;
+        color:var(--neon-blue);
+        font-size:30px;cursor:pointer;padding:10px;
+        transition:0.3s;font-weight:100;line-height:1;
+    }
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
+    }
+    nav.open{transform:translateX(0);}
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
+    }
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* === END MENU TOGGLE CSS === */
     
-    <h2 id="uu-diem">2. ƯU ĐIỂM</h2>
-    <div class="user-content">
-    <h3>✅ Ưu điểm</h3>
-    <ul class="pros">
-    <li>Trả lời nhanh chóng và chính xác</li>
-    <li>Cho phép người dùng cung cấp các chỉnh sửa tiếp theo</li>
+    .hero{
+        text-align:center;
+        padding:80px 20px 40px;
+    }
+    .hero h1{
+        font-size:52px;
+        font-weight:800;
+        background:var(--gradient-hero);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:18px;
+    }
+    .hero p{
+        color:var(--text-dim);
+        max-width:900px;
+        margin:auto;
+        font-size:18px;
+        line-height:1.7;
+    }
+    .container{
+        max-width:1100px; 
+        margin:0 auto 80px;
+        padding:0 20px;
+    }
+    
+    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
+    .two-column-layout{
+        display:flex;
+        gap:30px; 
+        align-items:flex-start;
+    }
+    .content-left {
+        flex: 3; 
+    }
+    .images-right {
+        flex: 2; 
+        display: flex;
+        flex-direction: column; 
+        gap: 20px;
+        position: sticky; 
+        top: 80px; 
+    }
+    
+    /* === STYLE CHO INFO BOX (Trái) === */
+    .info-box{
+        background:var(--gradient-card);
+        padding:32px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-neon);
+        border:1px solid rgba(255,255,255,0.08);
+    }
+    .info-box h2{
+        color:var(--neon-blue);
+        font-size:24px;
+        font-weight:700;
+        margin-top:0;
+        border-bottom:2px solid rgba(77,195,255,0.15);
+        padding-bottom:10px;
+    }
+    .user-content p{
+        margin-bottom:15px;
+        color:var(--text-dim);
+    }
+    .user-content h3{
+        color:var(--neon-blue);
+        font-size:18px;
+        font-weight:700;
+        margin-top:25px;
+        margin-bottom:10px;
+    }
+    .user-content ul{
+        list-style-type:none;
+        padding-left:0;
+    }
+    .user-content ul li{
+        margin-bottom:8px;
+        padding-left:25px;
+        position:relative;
+        font-size:16px;
+        color:var(--text-dim);
+    }
+    .user-content ul.pros li::before{
+        content:'✓';
+        color:#38e359;
+        font-weight:bold;
+        position:absolute;
+        left:0;
+        font-size:1.2em;
+    }
+    .user-content ul.cons li::before{
+        content:'✕';
+        color:#ff5e5e;
+        font-weight:bold;
+        position:absolute;
+        left:0;
+        font-size:1.2em;
+    }
+    .gemini-link{
+        display:inline-block;
+        margin-top:20px;
+        padding:12px 25px;
+        background:var(--gradient-hero);
+        color:var(--bg-dark);
+        text-decoration:none;
+        border-radius:8px;
+        font-weight:600;
+        transition:0.3s;
+        box-shadow:0 4px 15px rgba(77,195,255,0.4);
+    }
+    .gemini-link:hover{
+        background:linear-gradient(135deg, #69d4ff, #a07dff);
+        transform:translateY(-3px);
+        box-shadow:0 6px 20px rgba(77,195,255,0.6);
+    }
+    
+    /* === STYLE CHO IMAGE CARDS (Phải) === */
+    .image-card{
+        background:var(--gradient-card);
+        border-radius:var(--radius);
+        box-shadow:var(--shadow-neon);
+        border:1px solid rgba(255,255,255,0.08);
+        overflow:hidden;
+        padding:20px;
+        text-align:center;
+        transition: 0.3s;
+    }
+    .image-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px rgba(77,195,255,0.5);
+    }
+    .image-card h3 {
+        color: var(--neon-purple);
+        font-size: 18px;
+        margin-top: 5px;
+    }
+    .image-card img{
+        width:100%;
+        height:auto;
+        display:block;
+        margin:0 auto 10px;
+        border-radius: calc(var(--radius) - 5px);
+    }
+    
+    /* 🛠️ STYLE CHO LINK BÊN DƯỚI ẢNH (MỚI) */
+    .image-card .card-link {
+        display: block;
+        margin-top: 15px;
+        padding: 10px 15px;
+        background: var(--neon-purple); /* Nền tím neon */
+        color: var(--text-light);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: background 0.3s, transform 0.3s;
+        border: 1px solid var(--neon-purple);
+    }
+    .image-card .card-link:hover {
+        background: transparent; /* Hiệu ứng đảo ngược khi hover */
+        color: var(--neon-purple);
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(139, 91, 255, 0.7);
+    }
+
+    footer{
+        margin-top:80px;
+        padding:30px;
+        text-align:center;
+        font-size:14px;
+        color:var(--text-dim);
+        border-top:1px solid rgba(255,255,255,0.05);
+    }
+    
+    /* Responsive: Xếp dọc trên màn hình nhỏ */
+    @media (max-width: 992px){
+        .two-column-layout {
+            flex-direction: column;
+        }
+        .images-right {
+            order: -1; 
+            position: static; 
+            width: 100%;
+        }
+        .hero h1{
+            font-size:40px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="header-container">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+
+<nav id="main-nav">
+    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+    <a href="index.html">TRANG CHỦ</a>
+    <a href="muc1.html" class="active">THÔNG TIN</a>
+    <a href="muc2.html">VAI TRÒ</a>
+    <a href="muc3.html">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
+</nav>
+
+<section class="hero">
+    <h1>TỔNG QUAN VỀ CHAT GPT</h1>
+    <p>Trang web cung cấp cái nhìn tổng quan về ChatGPT, nêu rõ vai trò của nó trong học tập,
+         chỉ ra những sai lầm học sinh thường mắc phải và hướng dẫn các nguyên tắc sử dụng đúng – hiệu quả.</p>
+</section>
+
+<div class="container">
+    <div class="two-column-layout">
+        
+        <div class="content-left">
+            <div class="info-box">
+                <h2 id="tong-quan">1. CHAT GPT LÀ GÌ?</h2>
+                <div class="user-content">
+                    <p>
+                        ChatGPT là một hệ thống thông minh nhân tạo có thể hiểu và tạo ra ngôn ngữ như con người. 
+                        Công cụ này giúp người dùng đặt câu hỏi, tìm kiếm thông tin, giải thích thông tin, 
+                        và hỗ trợ người dùng trong quá trình học và học tập nhiều môn học khác nhau. 
+                        ChatGPT hoạt động dựa trên những thông tin dữ liệu lớn để có thể đưa ra câu trả lời phù hợp với câu hỏi của người dùng. Nếu được sử dụng một cách hợp lý, 
+                        ChatGPT có thể trở thành một trợ lý học tập thông minh và có ích cho học sinh.
+                    </p>
+                    <a href="https://chat.openai.com/" target="_blank" class="gemini-link">Khám phá Chat GPT (OpenAI)</a>
+                </div>
+
+                <h2 id="uu-diem">2. ƯU ĐIỂM</h2>
+                <div class="user-content">
+                    <h3>✅ Ưu điểm (Pros)</h3>
+                    <ul class="pros">
+                        <li>Trả lời nhanh chóng và chính xác</li>
+                        <li>Cho phép người dùng cung cấp các chỉnh sửa tiếp theo</li>
     <li>Kiến thức sâu rộng về nhiều lĩnh vực</li>
     <li>Tương tác tự nhiên, cá nhân hóa cuộc trò chuyện</li>
     <li>Mở rộng kiến thức</li>
     <li>Được đào tạo để từ chối các yêu cầu không phù hợp</li>
-    </ul></div>
-    
-    <h2 id="han-che">3. HẠN CHẾ</h2>
-    <div class="user-content">
-    <h3>❌ Hạn chế</h3>
-    <ul class="cons">
-    <li>Độ chính xác thông tin chưa tuyệt đối</li>
-    <li>Hạn chế về ngôn ngữ</li>
-    <li>Giới hạn trong xử lý nhóm từ phức tạp</li>
-    <li>Dữ liệu bị giới hạn</li>
-    </ul></div></div>
-    
-    <div class="media-box">
-    <h2></h2>
-    <img src="https://i.postimg.cc/3xDFmysz/Screenshot-2025-12-02-at-16-02-12.png" alt="Sơ đồ Kiến trúc Transformer của LLM" loading="lazy">
-    <p></p>
-    </div></div></div>
-    <footer></footer>
-    </body>
-    </html>
+                    </ul>
+                </div>
+
+                <h2 id="han-che">3. HẠN CHẾ</h2>
+                <div class="user-content">
+                    <h3>❌ Hạn chế (Cons)</h3>
+                    <ul class="cons">
+                        <li>Độ chính xác thông tin chưa tuyệt đối</li>
+                        <li>Hạn chế về ngôn ngữ</li>
+                        <li>Giới hạn trong xử lý nhóm từ phức tạp</li>
+                        <li>Dữ liệu bị giới hạn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="images-right">
+            
+            <div class="image-card">
+                <h3></h3>
+                <img src="https://i.postimg.cc/3xDFmysz/Screenshot_2025_12_02_at_16_02_12.png" alt="Sơ đồ Kiến trúc Transformer của LLM" loading="lazy">
+                
+            </div>
+            
+            <div class="image-card">
+                <h3>AI Là Đồng Hành Học Tập</h3>
+                <img src="https://i.postimg.cc/J0DcsJ1p/Screenshot-2025-12-02-at-23-19-33.png" alt="Sơ đồ Kiến trúc Transformer của LLM" loading="lazy">
+                
+                <a href="https://tapchigiaoduc.edu.vn/article/90330/225/chatgpt-trong-lop-hoc-khi-cong-nghe-tro-thanh-nguoi-ban-dong-hanh-trong-hanh-trinh-kien-tao-tri-thuc/" target="_blank" class="card-link">KHÁM PHÁ AI TRONG GIÁO DỤC</a>
+            </div>
+            
+            <div class="image-card">
+                <h3>Mở rộng hiểu biết với AI</h3>
+                <img src="https://i.postimg.cc/fRfwGrcQ/Screenshot-2025-12-02-at-23-27-05.png" alt="Sơ đồ Kiến trúc Transformer của LLM" loading="lazy">
+                
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+<footer></footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+</script>
+</body>
+</html>

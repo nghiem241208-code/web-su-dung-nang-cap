@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
 <title>NHỮNG SAI LẦM KHI SỬ DỤNG CHAT GPT</title>
 
 <style>
@@ -10,6 +10,7 @@
     /*  STYLE B: AI MODERN (NEON GRADIENT)  */
     /* ==================================== */
     :root {
+        --nav-width: 300px;
         --bg-dark: #06080d;
         --bg-card: #0d1117;
         --neon-blue: #4dc3ff;
@@ -31,41 +32,96 @@
         line-height: 1.7;
     }
 
-    /* Nav Bar - Sticky */
-    nav {
+    /* === MENU TOGGLE CSS === */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
+    }
+    .menu-toggle{
+        background:none;border:none;
+        color:var(--neon-blue);
+        font-size:30px;cursor:pointer;padding:10px;
+        transition:0.3s;font-weight:100;line-height:1;
+    }
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
+    }
+    nav.open{transform:translateX(0);}
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
+    }
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* === END MENU TOGGLE CSS === */
+    
+    .hero{
+        text-align:center;
+        padding:80px 20px 40px;
+    }
+    .hero h1{
+        font-size:52px;
+        font-weight:800;
+        background:var(--gradient-hero);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        margin-bottom:18px;
+    }
+    .hero p{
+        color:var(--text-dim);
+        max-width:900px;
+        margin:auto;
+        font-size:18px;
+        line-height:1.7;
+    }
+    .container{
+        max-width:1100px; 
+        margin:0 auto 80px;
+        padding:0 20px;
+    }
+    
+    /* 🛠️ CẤU TRÚC HAI CỘT SONG SONG */
+    .two-column-layout{
+        display:flex;
+        gap:30px; 
+        align-items:flex-start;
+    }
+    .content-left {
+        flex: 3; 
+    }
+    .images-right {
+        flex: 2; 
         display: flex;
-        flex-wrap: wrap;
-        gap: 26px;
-        justify-content: center;
-        padding: 14px 30px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        /* Đồng bộ giao diện Navbar */
-        backdrop-filter: blur(12px);
-        background: rgba(10, 10, 20, 0.55); 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: none;
-    }
-    nav a {
-        color: var(--text-dim);
-        text-decoration: none;
-        padding: 10px 16px;
-        border-radius: 6px;
-        font-weight: 500;
-        transition: 0.25s;
-        border: 1px solid transparent;
-    }
-    nav a:hover {
-        background: none;
-        color: var(--neon-blue);
-        text-shadow: 0 0 10px var(--neon-blue);
-        border-color: transparent;
-    }
-    nav a.active {
-        color: var(--neon-blue);
-        font-weight: 600;
-        text-shadow: 0 0 8px var(--neon-blue);
+        flex-direction: column; 
+        gap: 20px;
+        position: sticky; 
+        top: 80px; 
     }
 
     /* Khung nội dung chính (Container) */
@@ -170,13 +226,20 @@
 </head>
 <body>
 
-<nav>
-    <a href="index.html">TRANG CHỦ</a>
-    <a href="muc1.html">THÔNG TIN</a>
-    <a href="muc2.html">VAI TRÒ</a>
-    <a href="muc3.html" class="active">NHỮNG SAI LẦM</a>
-    <a href="muc4.html">GIẢI PHÁP</a>
-</nav>
+    <div class="header-container">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    
+    <nav id="main-nav">
+        <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+        <a href="index.html">TRANG CHỦ</a>
+        <a href="muc1.html">THÔNG TIN</a>
+        <a href="muc2.html">VAI TRÒ</a>
+        <a href="muc3.html" class="active">NHỮNG SAI LẦM</a>
+        <a href="muc4.html">GIẢI PHÁP</a>
+    </nav>
+    
+    
 
 <div class="container">
     <h1>NHỮNG SAI LẦM THƯỜNG GẶP </h1>
@@ -245,24 +308,41 @@
 </div>
 
 <script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+
     function toggleAccordion(element) {
-        // Đóng tất cả các accordion khác
         const allContents = document.querySelectorAll('.accordion-content');
         const allHeaders = document.querySelectorAll('.accordion-header');
         
         const currentContent = element.nextElementSibling;
+        const currentIcon = element.querySelector('.accordion-icon');
 
+        // Đóng tất cả các accordion khác (trừ accordion hiện tại)
         allHeaders.forEach(header => {
             if (header !== element && header.classList.contains('active')) {
                 header.classList.remove('active');
                 header.nextElementSibling.classList.remove('open');
+                header.nextElementSibling.style.maxHeight = null; // Đặt lại chiều cao
             }
         });
 
         // Mở/đóng accordion hiện tại
         element.classList.toggle('active');
-        currentContent.classList.toggle('open');
+
+        if (currentContent.style.maxHeight) {
+            // Đang mở, đóng lại
+            currentContent.style.maxHeight = null;
+            currentContent.classList.remove('open');
+        } else {
+            // Đang đóng, mở ra
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+            currentContent.classList.add('open');
+        }
     }
 </script>
+
 </body>
 </html>

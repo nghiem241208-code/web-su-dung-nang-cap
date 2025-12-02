@@ -2,17 +2,18 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hướng Dẫn Sử Dụng AI</title>
+<meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
+<title>ĐIÈU CHỈNH HÀNH VI SỬ DỤNG CHATGPT TRONG HỌC TẬP</title>
+
 
 <style>
     /* ===================== */
-    /*  STYLE B: AI MODERN  */
+    /* STYLE B: AI MODERN  */
     /* ===================== */
 
     :root {
-        --bg-dark: #06080d;
-        --bg-card: #0d1117;
+        --bg-dark: #0d1731 ;
+        --bg-card: #0d1731 ;
         --neon-blue: #4dc3ff;
         --neon-purple: #8b5bff;
         --text-light: #e9ecf8;
@@ -21,6 +22,7 @@
         --shadow-neon: 0 0 18px rgba(77,195,255,0.35);
         --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
         --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+        --nav-width: 300px; /* Độ rộng menu khi mở */
     }
 
     body {
@@ -31,44 +33,77 @@
     }
 
     /* ===================== */
-    /*       NAVBAR          */
+    /* MENU TOGGLE CSS     */
+    /* ===================== */
+    .header-container{
+        position:sticky;top:0;z-index:1000;padding:10px 20px;
+        backdrop-filter:blur(12px);
+        background:rgba(10,10,20,0.7);
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        display:flex;justify-content:flex-end;align-items:center;
+    }
+    .menu-toggle {
+    background: rgba(11, 46, 64, 0.1);
+    border: 1px solid rgba(77,195,255,0.30);
+    color: var(--neon-blue);
+    font-size: 30px;        /* Giảm kích thước icon */
+    cursor: pointer;
+    padding: 8px 12px;      /* Nhỏ lại diện tích bấm */
+    border-radius: 10px;    /* Bo góc nhẹ hơn */
+    transition: 0.3s;
+    font-weight: 200;
+    text-shadow: 0 0 10px rgba(77,195,255,0.6);
+}
+
+.menu-toggle:hover {
+    color: var(--neon-purple);
+    border-color: var(--neon-purple);
+    text-shadow: 0 0 14px var(--neon-purple);
+    box-shadow: 0 0 16px rgba(138,91,255,0.35);
+}
+
+    
+    .menu-toggle:hover{color:var(--neon-purple);text-shadow:0 0 15px var(--neon-blue);}
+    
+    nav{
+        position:fixed;top:0;right:0;width:100%;height:100%;
+        max-width:var(--nav-width);
+        background:rgba(6,8,13,0.95);
+        transform:translateX(100%);
+        transition:transform 0.3s ease-in-out;
+        display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+        padding-top:60px;z-index:9999;
+    }
+    nav.open{transform:translateX(0);}
+    
+    nav a{
+        width:100%;color:var(--text-dim);
+        text-decoration:none;font-weight:500;
+        padding:15px 30px;
+        border-bottom:1px solid rgba(255,255,255,0.05);
+        transition:0.25s;
+    }
+    nav a:hover{
+        color:var(--neon-blue);
+        text-shadow:0 0 10px var(--neon-blue);
+        background:rgba(77,195,255,0.05);
+    }
+    nav a.active{
+        color:var(--neon-blue);
+        font-weight:600;
+        text-shadow:0 0 8px var(--neon-blue);
+    }
+    .close-btn{
+        position:absolute;top:15px;right:25px;
+        color:var(--neon-blue);
+        font-size:35px;font-weight:100;line-height:1;
+    }
+    /* ===================== */
+    /* END MENU TOGGLE CSS   */
     /* ===================== */
 
-    nav {
-        position: sticky;
-        top: 0;
-        backdrop-filter: blur(12px);
-        background: rgba(10,10,20,0.55);
-        padding: 14px 30px;
-        display: flex;
-        justify-content: center;
-        gap: 26px;
-        z-index: 50;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    nav a {
-        color: var(--text-dim);
-        text-decoration: none;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        padding: 10px 16px;
-        border-radius: 6px;
-        transition: 0.25s;
-    }
-
-    nav a:hover {
-        color: var(--neon-blue);
-        text-shadow: 0 0 10px var(--neon-blue);
-    }
-
-    nav a.active {
-        color: var(--neon-blue);
-        font-weight: 600;
-    }
-
     /* ===================== */
-    /*       HERO SECTION     */
+    /* HERO SECTION     */
     /* ===================== */
 
     .hero {
@@ -92,53 +127,49 @@
     }
 
     /* ===================== */
-    /*     CARD (BENTO)       */
+    /* CARD (BENTO)       */
     /* ===================== */
 
     .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 28px;
-        max-width: 1100px;
-        margin: auto;
-        padding: 0 20px 80px;
-    }
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 38px;
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px 80px;
+}
 
-    .card {
-        background: var(--gradient-card);
-        padding: 32px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-neon);
-        border: 1px solid rgba(255,255,255,0.08);
-        transition: 0.35s;
-        cursor: pointer;
-    }
+.card {
+    background: var(--gradient-card);
+    padding: 45px; /* tăng không gian bên trong */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-neon);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.35s;
+    cursor: pointer;
+}
 
-    .card:hover {
-        transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 0 28px rgba(77,195,255,0.55);
-    }
+.card img {
+    width: 80px; /* icon lớn hơn */
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 8px rgba(77,195,255,0.5));
+}
 
-    .card img {
-        width: 58px;
-        margin-bottom: 18px;
-        filter: drop-shadow(0 0 8px rgba(77,195,255,0.5));
-    }
+.card h3 {
+    margin: 0 0 12px;
+    font-size: 26px;
+    color: var(--neon-blue);
+}
 
-    .card h3 {
-        margin: 0 0 10px;
-        font-size: 22px;
-        color: var(--neon-blue);
-    }
+.card p {
+    color: var(--text-dim);
+    line-height: 1.75;
+    font-size: 18px;
+}
 
-    .card p {
-        color: var(--text-dim);
-        line-height: 1.6;
-        font-size: 15.5px;
-    }
 
     /* ===================== */
-    /*        FOOTER          */
+    /* FOOTER          */
     /* ===================== */
 
     footer {
@@ -155,22 +186,24 @@
 
 <body>
 
-    <nav>
-        <a href="index.html">TRANG CHỦ</a>
-        <a href="muc1.html">THÔNG TIN</a>
-        <a href="muc2.html">VAI TRÒ</a>
-        <a href="muc3.html">NHỮNG SAI LẦM</a>
-        <a href="muc4.html">GIẢI PHÁP</a>
-    </nav>
+<div class="header-container">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</div>
+
+<nav id="main-nav">
+    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+    <a href="index.html" class="active">TRANG CHỦ</a>
+    <a href="muc1.html">THÔNG TIN</a>
+    <a href="muc2.html" >VAI TRÒ</a>
+    <a href="muc3.html">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
+</nav>
     
-<!-- HERO -->
 <section class="hero">
-    <h1>Công Nghệ AI Trong Học Tập</h1>
-    <p>Trang web cung cấp cái nhìn tổng quan về ChatGPT, nêu rõ vai trò của nó trong học tập, 
-        chỉ ra những sai lầm học sinh thường mắc phải và hướng dẫn các nguyên tắc sử dụng đúng – hiệu quả.</p>
+    <h1>ĐIÈU CHỈNH HÀNH VI SỬ DỤNG CHATGPT TRONG HỌC TẬP</h1>
+    <p>Chào mừng bạn đến với trang thông tin: Tác giá: Võ Phú Thịnh-11A10 và Nguyễn Ngọc Vân Anh-11A7 | Mã dự án:…</p>
 </section>
 
-<!-- BENTO GRID -->
 <div class="grid">
 
     <a href="muc1.html" class="card">
@@ -199,10 +232,15 @@
 
 </div>
 
-<!-- FOOTER -->
 <footer>
    
 </footer>
 
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        nav.classList.toggle('open');
+    }
+</script>
 </body>
 </html>
