@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hướng Dẫn Sử Dụng AI</title>
+
+<style>
+    /* ===================== */
+    /*  STYLE B: AI MODERN  */
+    /* ===================== */
+
+    :root {
+        --bg-dark: #06080d;
+        --bg-card: #0d1117;
+        --neon-blue: #4dc3ff;
+        --neon-purple: #8b5bff;
+        --text-light: #e9ecf8;
+        --text-dim: #b9c0d4;
+        --radius: 18px;
+        --shadow-neon: 0 0 18px rgba(77,195,255,0.35);
+        --gradient-hero: linear-gradient(135deg, #4dc3ff, #8a5bff);
+        --gradient-card: linear-gradient(135deg, #10304a 0%, #1d0f3b 100%);
+    }
+
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+    }
+
+    /* ===================== */
+    /*       NAVBAR          */
+    /* ===================== */
+
+    nav {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(12px);
+        background: rgba(10,10,20,0.55);
+        padding: 14px 30px;
+        display: flex;
+        justify-content: center;
+        gap: 26px;
+        z-index: 50;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav a {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        transition: 0.25s;
+    }
+
+    nav a:hover {
+        color: var(--neon-blue);
+        text-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    nav a.active {
+        color: var(--neon-blue);
+        font-weight: 600;
+    }
+
+    /* ===================== */
+    /*       HERO SECTION     */
+    /* ===================== */
+
+    .hero {
+        text-align: center;
+        padding: 80px 20px 120px;
+    }
+    .hero h1 {
+        font-size: 52px;
+        font-weight: 800;
+        background: var(--gradient-hero);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 18px;
+    }
+    .hero p {
+        color: var(--text-dim);
+        max-width: 650px;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    /* ===================== */
+    /*     CARD (BENTO)       */
+    /* ===================== */
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px 80px;
+    }
+
+    .card {
+        background: var(--gradient-card);
+        padding: 32px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-neon);
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: 0.35s;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 0 28px rgba(77,195,255,0.55);
+    }
+
+    .card img {
+        width: 58px;
+        margin-bottom: 18px;
+        filter: drop-shadow(0 0 8px rgba(77,195,255,0.5));
+    }
+
+    .card h3 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        color: var(--neon-blue);
+    }
+
+    .card p {
+        color: var(--text-dim);
+        line-height: 1.6;
+        font-size: 15.5px;
+    }
+
+    /* ===================== */
+    /*        FOOTER          */
+    /* ===================== */
+
+    footer {
+        margin-top: 80px;
+        padding: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--text-dim);
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+</style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">TRANG CHỦ</a>
+        <a href="muc1.html">THÔNG TIN</a>
+        <a href="muc2.html" class="active">VAI TRÒ</a>
+        <a href="muc3.html">NHỮNG SAI LẦM</a>
+        <a href="muc4.html">GIẢI PHÁP</a>
+    </nav>
+    
+<!-- HERO -->
+<section class="hero">
+    <h1>Công Nghệ AI Trong Học Tập</h1>
+    <p>Khám phá cách ứng dụng AI một cách thông minh, an toàn và hiệu quả. Hướng dẫn toàn diện cho học sinh trong thời đại công nghệ 4.0.</p>
+</section>
+
+<!-- BENTO GRID -->
+<div class="grid">
+
+    <a href="muc1.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/11232/11232156.png" />
+        <h3>Tổng Quan Về AI</h3>
+        <p>Hiểu cách AI vận hành, đặc điểm và mục tiêu ứng dụng trong học tập hiện đại.</p>
+    </a>
+
+    <a href="muc2.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/868/868786.png" />
+        <h3>Vai Trò Của Chat GPT</h3>
+        <p>Khám phá lợi ích của AI trong nghiên cứu, giải bài, phân tích và sáng tạo nội dung.</p>
+    </a>
+
+    <a href="muc3.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" />
+        <h3>Những Sai Lầm</h3>
+        <p>Các lỗi phổ biến khi lạm dụng AI và hậu quả nếu sử dụng không đúng cách.</p>
+    </a>
+
+    <a href="muc4.html" class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" />
+        <h3>Giải Pháp </h3>
+        <p>Học cách dùng AI hỗ trợ học tập thay vì phụ thuộc và cách tối ưu hoá hiệu quả.</p>
+    </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+   
+</footer>
+
+</body>
+</html>
