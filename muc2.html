@@ -2,167 +2,203 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Trang thông tin về việc sử dụng AI đúng cách trong học tập - vai trò, sai lầm và giải pháp.">
-<title>VAI TRÒ CỦA CHAT GPT</title>
+<meta name="description" content="Vai trò của ChatGPT trong học tập – hỗ trợ phát triển năng lực, tư duy và kỹ năng cho học sinh.">
+<title>VAI TRÒ CỦA CHATGPT</title>
 
 <style>
 :root{
-    --bg-dark:#0d1731;
-    --neon-blue:#4dc3ff;
-    --neon-purple:#8b5bff;
-    --text-light:#e9ecf8;
-    --text-dim:#b9c0d4;
-    --radius:18px;
-    --shadow-neon:0 0 18px rgba(77,195,255,0.35);
-    --gradient-hero:linear-gradient(135deg,#4dc3ff,#8a5bff);
-    --gradient-card:linear-gradient(135deg,#10304a 0%,#1d0f3b 100%);
-    --nav-width:300px;
+    --bg-dark:#0d1731;
+    --neon-blue:#4dc3ff;
+    --neon-purple:#8b5bff;
+    --text-light:#e9ecf8;
+    --text-dim:#b9c0d4;
+    --radius:18px;
+    --shadow-neon:0 0 18px rgba(77,195,255,0.35);
+    --gradient-hero:linear-gradient(135deg,#4dc3ff,#8a5bff);
+    --gradient-card:linear-gradient(135deg,#10304a 0%,#1d0f3b 100%);
+    --nav-width:300px;
 }
 
 body{
-    margin:0;
-    font-family:"Poppins",sans-serif;
-    background:var(--bg-dark);
-    color:var(--text-light);
-    line-height:1.7;
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background:var(--bg-dark);
+    color:var(--text-light);
+    line-height:1.7;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .header-container{
-    position:sticky;
-    top:0;
-    padding:10px 20px;
-    backdrop-filter:blur(12px);
-    background:rgba(10,10,20,.7);
-    display:flex;
-    justify-content:flex-end;
+    position:sticky;
+    top:0;
+    padding:10px 20px;
+    backdrop-filter:blur(12px);
+    background:rgba(10,10,20,.7);
+    display:flex;
+    justify-content:flex-end;
+    z-index:10;
 }
 
 .menu-toggle{
-    background:none;
-    border:none;
-    font-size:30px;
-    color:var(--neon-blue);
-    cursor:pointer;
+    background:none;
+    border:none;
+    font-size:30px;
+    color:var(--neon-blue);
+    cursor:pointer;
 }
 
 nav{
-    position:fixed;
-    top:0;
-    right:0;
-    width:100%;
-    height:100%;
-    max-width:var(--nav-width);
-    background:rgba(6,8,13,.95);
-    transform:translateX(100%);
-    transition:.3s;
-    padding-top:60px;
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+    height:100%;
+    max-width:var(--nav-width);
+    background:rgba(6,8,13,.95);
+    transform:translateX(100%);
+    transition:.3s;
+    padding-top:60px;
 }
 
 nav.open{transform:translateX(0);}
 
 nav a{
-    display:block;
-    padding:15px 30px;
-    color:var(--text-dim);
-    text-decoration:none;
+    display:block;
+    padding:15px 30px;
+    color:var(--text-dim);
+    text-decoration:none;
 }
 
 nav a.active,
 nav a:hover{color:var(--neon-blue);}
 
 .close-btn{
-    position:absolute;
-    top:15px;
-    right:25px;
-    font-size:35px;
+    position:absolute;
+    top:15px;
+    right:25px;
+    font-size:35px;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-    text-align:center;
-    padding:80px 20px 40px;
+    text-align:center;
+    padding:80px 20px 40px;
 }
 
 .hero h1{
-    font-size:52px;
-    font-weight:800;
-    background:var(--gradient-hero);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    font-size:52px;
+    font-weight:800;
+    background:var(--gradient-hero);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* CONTENT */
+/* ===== CONTENT ===== */
 .container{
-    max-width:1100px;
-    margin:0 auto 80px;
-    padding:0 20px;
+    max-width:1100px;
+    margin:0 auto 80px;
+    padding:0 20px;
 }
 
-/* GRID 3 Ô NGANG */
+.intro{
+    max-width:900px;
+    margin:0 auto 40px;
+    color:var(--text-dim);
+    text-align:center;
+    font-size:16px;
+}
+
+/* GRID */
 .role-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
-/* CARD CHUNG */
+/* CARD */
 .role-card{
-    background:var(--gradient-card);
-    padding:28px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-neon);
-    border:1px solid rgba(255,255,255,.08);
-    transition:.3s;
-    display:flex;
-    flex-direction:column;
+    background:var(--gradient-card);
+    padding:28px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-neon);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
 }
 
 .role-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 25px rgba(77,195,255,.5);
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(77,195,255,.5);
 }
 
 .role-card h2{
-    color:var(--neon-purple);
-    border-bottom:2px solid rgba(139,91,255,.15);
-    padding-bottom:10px;
-    font-size:20px;
+    color:var(--neon-purple);
+    border-bottom:2px solid rgba(139,91,255,.15);
+    padding-bottom:10px;
+    font-size:20px;
 }
 
 .role-card p{
-    color:var(--text-dim);
-    font-size:15px;
+    color:var(--text-dim);
+    font-size:15px;
+    margin-bottom:15px;
 }
 
-/* NÚT CTA */
+/* ACTIONS */
+.card-actions{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:center;
+}
+
 .cta-btn{
-    margin-top:auto; /* đẩy nút xuống đáy */
-    align-self:center; /* ĐÃ ĐIỀU CHỈNH: Căn giữa theo chiều ngang */
-    padding:12px 26px;
-    border-radius:30px;
-    background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 0 18px rgba(77,195,255,.6);
-    transition:.3s;
+    padding:12px 26px;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 18px rgba(77,195,255,.6);
+    transition:.3s;
 }
 
 .cta-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 28px rgba(139,91,255,.8);
+    transform:translateY(-2px);
+    box-shadow:0 0 28px rgba(139,91,255,.8);
+}
+
+.video-btn{
+    padding:12px 26px;
+    border-radius:30px;
+    background:transparent;
+    color:var(--neon-purple);
+    border:2px solid var(--neon-purple);
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.video-btn:hover{
+    background:rgba(139,91,255,.15);
+    transform:translateY(-2px);
+}
+
+.highlight-card{
+    border:1px solid rgba(77,195,255,.35);
+    box-shadow:0 0 30px rgba(77,195,255,.25);
 }
 
 /* RESPONSIVE */
 @media(max-width:992px){
-    .role-grid{grid-template-columns:repeat(2,1fr);}
+    .role-grid{grid-template-columns:repeat(2,1fr);}
 }
 
 @media(max-width:600px){
-    .role-grid{grid-template-columns:1fr;}
-    .hero h1{font-size:40px;}
+    .role-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:40px;}
 }
 </style>
 </head>
@@ -170,69 +206,88 @@ nav a:hover{color:var(--neon-blue);}
 <body>
 
 <div class="header-container">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 </div>
 
 <nav id="main-nav">
-    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
-    <a href="index.html">TRANG CHỦ</a>
-    <a href="muc1.html">THÔNG TIN</a>
-    <a href="muc2.html" class="active">VAI TRÒ</a>
-    <a href="muc3.html">NHỮNG SAI LẦM</a>
-    <a href="muc4.html">GIẢI PHÁP</a>
+    <button class="menu-toggle close-btn" onclick="toggleMenu()">✕</button>
+    <a href="index.html">TRANG CHỦ</a>
+    <a href="muc1.html">THÔNG TIN</a>
+    <a href="muc2.html" class="active">VAI TRÒ</a>
+    <a href="muc3.html">NHỮNG SAI LẦM</a>
+    <a href="muc4.html">GIẢI PHÁP</a>
 </nav>
 
 <section class="hero">
-    <h1>VAI TRÒ CỦA CHAT GPT</h1>
+    <h1>VAI TRÒ CỦA CHATGPT</h1>
 </section>
 
 <div class="container">
+
+<p class="intro">
+ChatGPT không thay thế người học mà đóng vai trò là công cụ hỗ trợ,
+định hướng và đồng hành, giúp học sinh phát triển năng lực, tư duy
+và kỹ năng học tập trong thời đại số.
+</p>
+
 <div class="role-grid">
 
-    <div class="role-card">
-        <h2>Năng lực tự chủ</h2>
-        <p>ChatGPT khuyến khích học sinh tự đặt vấn đề, tìm nguồn, tự đánh giá hiểu biết và lên kế hoạch học tập cá nhân.</p>
-    </div>
+    <div class="role-card">
+        <h2>Năng lực tự chủ</h2>
+        <p>
+            ChatGPT khuyến khích học sinh tự đặt vấn đề, tìm nguồn, tự đánh giá hiểu biết và lên kế hoạch học tập cá nhân.
+        </p>
+    </div>
 
-    <div class="role-card">
-        <h2>Năng lực giải quyết vấn đề</h2>
-        <p>ChatGPT cung cấp khung tư duy, phương pháp tiếp cận đa hướng và bước thực hiện để phân tích, thử nghiệm và lựa chọn giải pháp.</p>
-    </div>
+    <div class="role-card">
+        <h2>Năng lực giải quyết vấn đề</h2>
+        <p>
+            ChatGPT hỗ trợ phát triển kỹ năng đọc, viết, dịch và diễn đạt (cả tiếng Việt và ngoại ngữ) thông qua tương tác, sửa lỗi, gợi ý từ vựng và cấu trúc.
+        </p>
+    </div>
 
-    <div class="role-card">
-        <h2>Năng lực ngôn ngữ</h2>
-        <p>ChatGPT hỗ trợ phát triển kỹ năng đọc, viết, dịch và diễn đạt (cả tiếng Việt và ngoại ngữ) thông qua tương tác, sửa lỗi, gợi ý từ vựng và cấu trúc.</p>
-    </div>
+    <div class="role-card">
+        <h2>Năng lực ngôn ngữ</h2>
+        <p>
+            ChatGPT giúp rèn kỹ năng đặt câu hỏi, trình bày ý tưởng mạch lạc, xây dựng luận điểm và phản hồi xây dựng — cả bằng văn viết lẫn lời nói.
+        </p>
+    </div>
 
-    <div class="role-card">
-        <h2>Năng lực giao tiếp</h2>
-        <p>ChatGPT giúp rèn kỹ năng đặt câu hỏi, trình bày ý tưởng mạch lạc, xây dựng luận điểm và phản hồi xây dựng — cả bằng văn viết lẫn lời nói.</p>
-    </div>
+    <div class="role-card">
+        <h2>Năng lực giao tiếp</h2>
+        <p>
+            ChatGPT hỗ trợ phát triển kỹ năng đọc, viết, dịch và diễn đạt (cả tiếng Việt và ngoại ngữ) thông qua tương tác, sửa lỗi, gợi ý từ vựng và cấu trúc.
+        </p>
+    </div>
 
-    <div class="role-card">
-        <h2>Năng lực công nghệ thông tin</h2>
-        <p> ChatGPT giúp học sinh tiếp cận kiến thức Tin học và lập trình dễ dàng hơn, đặc biệt là trong việc đọc hiểu mã, sửa lỗi, viết thuật toán và luyện tư duy lập trình Python.</p>
-    </div>
+    <div class="role-card">
+        <h2>Năng lực công nghệ thông tin</h2>
+        <p>
+            ChatGPT giúp học sinh tiếp cận kiến thức Tin học và lập trình dễ dàng hơn, đặc biệt là trong việc đọc hiểu mã, sửa lỗi, viết thuật toán và luyện tư duy lập trình Python.
+        </p>
+    </div>
 
-        <div class="role-card">
-        <h2>Tư vấn & đồng hành học tập</h2>
-        <p>
-            Trang tư vấn hỗ trợ định hướng học tập, sử dụng AI hiệu quả
-            và xây dựng lộ trình học cá nhân hóa cho học sinh.
-        </p>
-        <a href="https://www.youtube.com/watch?v=vyCsmAU8b-g" class="cta-btn" target="_blank">
-            Truy cập trang tư vấn
-        </a>
-    </div>
+    <div class="role-card highlight-card">
+        <h2>Tư vấn & đồng hành học tập</h2>
+        <p>
+            ChatGPT đóng vai trò người bạn đồng hành,
+            hỗ trợ định hướng học tập và sử dụng AI một cách hiệu quả.
+        </p>
+        <div class="card-actions">
+            <a href="https://www.youtube.com/watch?v=vyCsmAU8b-g"
+               class="cta-btn" target="_blank">
+                Truy cập trang tư vấn
+            </a>
+            
+        </div>
+    </div>
 
 </div>
 </div>
-
-<footer></footer>
 
 <script>
 function toggleMenu(){
-    document.getElementById("main-nav").classList.toggle("open");
+    document.getElementById("main-nav").classList.toggle("open");
 }
 </script>
 
